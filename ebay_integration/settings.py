@@ -11,7 +11,7 @@ LOG_FILE_PATH = BASE_DIR / 'debug.log'
 SECRET_KEY = 'x5dv)8o+%33c)t3j6y_747-gi*$9!%s1rh!9(p=f*#dztmoiu+'
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'localhost:8000']
+ALLOWED_HOSTS = ['ebay-integration-b1dc507216da.herokuapp.com', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
