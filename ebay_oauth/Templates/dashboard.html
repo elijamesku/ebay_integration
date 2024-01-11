@@ -1,0 +1,24 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eBay Dashboard</title>
+</head>
+<body>
+    <h1>eBay Dashboard</h1>
+
+    <!-- Display Seller Information -->
+    <h2>Seller Information</h2>
+    <pre>{{ seller_info|safe }}</pre>
+
+    <!-- Display Listings -->
+    <h2>Listings</h2>
+    <pre>{{ listings|safe }}</pre>
+
+    <!-- Display Sales -->
+    <h2>Sales</h2>
+    <pre>{{ sales|safe }}</pre>
+</body>
+</html>
