@@ -5,13 +5,13 @@ from django.core.management.utils import get_random_secret_key
 import logging
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-# Define the path to the log file
+# Path to the log file
 LOG_FILE_PATH = BASE_DIR / 'debug.log'
 
 SECRET_KEY = 'x5dv)8o+%33c)t3j6y_747-gi*$9!%s1rh!9(p=f*#dztmoiu+'
 DEBUG = True
 
-ALLOWED_HOSTS = ['ebay-integration-b1dc507216da.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['ebay-integration-b1dc507216da.herokuapp.com', 'localhost', '127.0.0.1', 'rapidresaledemo.com']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -108,6 +108,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # eBay OAuth configurations
 EBAY_CLIENT_ID = 'RapidRes-RapidRes-PRD-083448d6e-7b744566'
 EBAY_CLIENT_SECRET = 'PRD-83448d6ee35b-1b2d-49aa-9f3f-2811'
-EBAY_REDIRECT_URI = 'https://auth.ebay.com/oauth2/authorize?client_id=RapidRes-RapidRes-PRD-083448d6e-7b744566&response_type=code&redirect_uri=RapidResale_Co-RapidRes-RapidR-soucmz&scope=https://api.ebay.com/oauth/api_scope https://api.ebay.com/oauth/api_scope/sell.marketing.readonly https://api.ebay.com/oauth/api_scope/sell.marketing https://api.ebay.com/oauth/api_scope/sell.inventory.readonly https://api.ebay.com/oauth/api_scope/sell.inventory https://api.ebay.com/oauth/api_scope/sell.account.readonly https://api.ebay.com/oauth/api_scope/sell.account https://api.ebay.com/oauth/api_scope/sell.fulfillment.readonly https://api.ebay.com/oauth/api_scope/sell.fulfillment https://api.ebay.com/oauth/api_scope/sell.analytics.readonly https://api.ebay.com/oauth/api_scope/sell.finances https://api.ebay.com/oauth/api_scope/sell.payment.dispute https://api.ebay.com/oauth/api_scope/commerce.identity.readonly https://api.ebay.com/oauth/api_scope/sell.reputation https://api.ebay.com/oauth/api_scope/sell.reputation.readonly https://api.ebay.com/oauth/api_scope/commerce.notification.subscription https://api.ebay.com/oauth/api_scope/commerce.notification.subscription.readonly https://api.ebay.com/oauth/api_scope/sell.stores https://api.ebay.com/oauth/api_scope/sell.stores.readonly'
+EBAY_REDIRECT_URI = 'https://ebay-integration-b1dc507216da.herokuapp.com/ebay/callback/'
 EBAY_RU_NAME = 'RapidResale_Co-RapidRes-RapidR-soucmz'
 STATIC_ROOT = BASE_DIR / 'staticfiles'

@@ -22,14 +22,27 @@ def ebay_login(request):
     scope = [
         'https://api.ebay.com/oauth/api_scope',
         'https://api.ebay.com/oauth/api_scope/sell.marketing.readonly',
-        # ... (add all other scopes)
+        'https://api.ebay.com/oauth/api_scope/sell.marketing',
+        'https://api.ebay.com/oauth/api_scope/sell.inventory.readonly',
+        'https://api.ebay.com/oauth/api_scope/sell.inventory',
+        'https://api.ebay.com/oauth/api_scope/sell.account.readonly',
+        'https://api.ebay.com/oauth/api_scope/sell.account',
+        'https://api.ebay.com/oauth/api_scope/sell.fulfillment.readonly',
+        'https://api.ebay.com/oauth/api_scope/sell.fulfillment',
+        'https://api.ebay.com/oauth/api_scope/sell.analytics.readonly',
+        'https://api.ebay.com/oauth/api_scope/sell.finances',
+        'https://api.ebay.com/oauth/api_scope/sell.item.draft',
+        'https://api.ebay.com/oauth/api_scope/sell.item',
+        'https://api.ebay.com/oauth/api_scope/sell.reputation.readonly',
+
     ]
 
-    redirect_uri = 'https://signin.ebay.com/ws/eBayISAPI.dll?SignIn&runame=RapidResale_Co-RapidRes-RapidR-soucmz'
+    redirect_uri = 'https://ebay-integration-b1dc507216da.herokuapp.com/ebay/callback/'
 
     ebay = OAuth2Session(client_id, redirect_uri=redirect_uri, scope=scope)
     authorization_url, _ = ebay.authorization_url(ebay_auth_url)
-    return redirect(authorization_url)
+    return redirect(authorization_url)\
+
 
 
 def ebay_callback(request):
@@ -74,7 +87,7 @@ def ebay_callback(request):
                 seller_info=seller_info
             )
 
-        # Redirect the user to the dashboard
+        # Redirecting the user to the dashboard
         return redirect('dashboard')
     except OAuth2Error as e:
         logger.error(f"OAuth Error: {e}")
@@ -205,7 +218,6 @@ def dashboard(request):
 
     sales_url = BASE_URL + SALES_ENDPOINT
     response_sales = ebay.get(sales_url)
-
     refresh_ebay_token(request)
 
     return render(request, 'dashboard.html', {
@@ -217,6 +229,6 @@ def dashboard(request):
 
 def get_ebay_session(request):
     client_id = 'RapidRes-RapidRes-PRD-083448d6e-7b744566'
-    redirect_uri = 'https://signin.ebay.com/ws/eBayISAPI.dll?SignIn&runame=RapidResale_Co-RapidRes-RapidR-soucmz'
+    redirect_uri = 'https://ebay-integration-b1dc507216da.herokuapp.com/ebay/callback/'
 
     return OAuth2Session(client_id, redirect_uri=redirect_uri, token=request.session.get('ebay_token'))

@@ -1,24 +1,55 @@
-<!-- dashboard.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>eBay Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1, h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        section {
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        pre {
+            white-space: pre-wrap;
+        }
+    </style>
 </head>
 <body>
     <h1>eBay Dashboard</h1>
 
-    <!-- Display Seller Information -->
-    <h2>Seller Information</h2>
-    <pre>{{ seller_info|safe }}</pre>
+    <!-- Seller Information Section -->
+    <section>
+        <h2>Seller Information</h2>
+        <pre>{{ seller_info|safe }}</pre>
+    </section>
 
-    <!-- Display Listings -->
-    <h2>Listings</h2>
-    <pre>{{ listings|safe }}</pre>
+    <!-- Listings Section -->
+    <section>
+        <h2>Listings</h2>
+        <pre>{{ listings|safe }}</pre>
+    </section>
 
-    <!-- Display Sales -->
-    <h2>Sales</h2>
-    <pre>{{ sales|safe }}</pre>
+    <!-- Sales Section -- adding base css>
+    <section>
+        <h2>Sales</h2>
+        <pre>{{ sales|safe }}</pre>
+    </section>
+
+
 </body>
 </html>
